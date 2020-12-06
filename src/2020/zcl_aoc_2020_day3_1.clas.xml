@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_AOC_2020_DAY3_1</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Advents of Code : 2020 - Day 3 / Problem 1</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+    <WITH_UNIT_TESTS>X</WITH_UNIT_TESTS>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_AOC_2020_DAY3_1</CLSNAME>
+     <CMPNAME>CALCULATE_EXPAND_TIMES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Calculates expand times</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CLSNAME>ZCL_AOC_2020_DAY3_1</CLSNAME>
+     <CMPNAME>PREPARE_EXPANDED_INPUT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Expand input value</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

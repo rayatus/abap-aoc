@@ -26,7 +26,6 @@ CLASS zcl_aoc_2020_day2_1 DEFINITION
 
     METHODS:
       zif_aoc_problem~run REDEFINITION,
-      zif_aoc_problem~print REDEFINITION,
       map_input IMPORTING io_input_helper TYPE REF TO zif_aoc_input_helper
                 CHANGING  ct_mapped_input TYPE mtyp_t_mapped_input.
 
@@ -67,11 +66,6 @@ CLASS zcl_aoc_2020_day2_1 IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_aoc_problem~print.
-    io_out->write( condense( |Found { ms_solution-result } correct passwords.| ) ).
-  ENDMETHOD.
-
-
   METHOD zif_aoc_problem~run.
     map_input( EXPORTING io_input_helper = mo_input_helper
                CHANGING  ct_mapped_input = mt_input ).
@@ -84,7 +78,10 @@ CLASS zcl_aoc_2020_day2_1 IMPLEMENTATION.
         INSERT ls_input-password INTO TABLE ms_solution-ko_pass.
       ENDIF.
     ENDLOOP.
+
     ms_solution-result = lines( ms_solution-ok_pass ).
+
+    set_result( conv #( ms_solution-result ) ).
 
   ENDMETHOD.
 ENDCLASS.

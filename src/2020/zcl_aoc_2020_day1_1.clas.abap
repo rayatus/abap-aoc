@@ -17,8 +17,7 @@ CLASS zcl_aoc_2020_day1_1 DEFINITION
     DATA: ms_solution_1 TYPE mtyp_s_solution_1 READ-ONLY.
 
     METHODS:
-      zif_aoc_problem~run REDEFINITION,
-      zif_aoc_problem~print REDEFINITION.
+      zif_aoc_problem~run REDEFINITION.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -28,13 +27,6 @@ ENDCLASS.
 
 
 CLASS zcl_aoc_2020_day1_1 IMPLEMENTATION.
-  METHOD zif_aoc_problem~print.
-    IF ms_solution_1 IS NOT INITIAL.
-      io_out->write( condense( |Found values { ms_solution_1-value1 } and { ms_solution_1-value2 } which multiplied results in { ms_solution_1-result }| ) ).
-    ELSE.
-      io_out->write( |No solution has been found. :_(| ).
-    ENDIF.
-  ENDMETHOD.
 
   METHOD zif_aoc_problem~run.
 
@@ -60,6 +52,8 @@ CLASS zcl_aoc_2020_day1_1 IMPLEMENTATION.
     IF lf_found = abap_false.
       CLEAR ms_solution_1.
     ENDIF.
+
+    set_result( conv #( ms_solution_1-result ) ).
 
   ENDMETHOD.
 

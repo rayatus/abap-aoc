@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">Advents of Code : 2020 - Day 2 / Problem 1</p>
+"! <p class="shorttext synchronized" lang="en">Advents of Code : 2020 - Day 2 / Problem 2</p>
 CLASS zcl_aoc_2020_day2_2 DEFINITION
   PUBLIC
   FINAL
@@ -26,7 +26,6 @@ CLASS zcl_aoc_2020_day2_2 DEFINITION
 
     METHODS:
       zif_aoc_problem~run REDEFINITION,
-      zif_aoc_problem~print REDEFINITION,
       map_input IMPORTING io_input_helper TYPE REF TO zif_aoc_input_helper
                 CHANGING  ct_mapped_input TYPE mtyp_t_mapped_input.
 
@@ -67,10 +66,6 @@ CLASS zcl_aoc_2020_day2_2 IMPLEMENTATION.
   ENDMETHOD.
 
 
-  METHOD zif_aoc_problem~print.
-    io_out->write( condense( |Found { ms_solution-result } correct passwords.| ) ).
-  ENDMETHOD.
-
 
   METHOD zif_aoc_problem~run.
     DATA ld_character_pos_1 TYPE i.
@@ -99,6 +94,6 @@ CLASS zcl_aoc_2020_day2_2 IMPLEMENTATION.
       ENDIF.
     ENDLOOP.
     ms_solution-result = lines( ms_solution-ok_pass ).
-
+    set_result( conv #( ms_solution-result ) ).
   ENDMETHOD.
 ENDCLASS.

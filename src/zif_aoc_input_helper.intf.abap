@@ -1,14 +1,14 @@
 INTERFACE zif_aoc_input_helper
   PUBLIC .
-
-  TYPES mtyp_t_input_values TYPE STANDARD TABLE OF string WITH NON-UNIQUE KEY table_line.
+  types mtyp_d_input_value  type string.
+  TYPES mtyp_t_input_values TYPE STANDARD TABLE OF mtyp_d_input_value WITH NON-UNIQUE KEY table_line.
 
   METHODS has_next
     RETURNING
-      VALUE(rf_has_next) TYPE abap_bool .
+      VALUE(rf_has_next) TYPE abap_bool.
   METHODS next
     RETURNING
-      VALUE(rd_next) TYPE i .
+      VALUE(rd_next) TYPE mtyp_d_input_value.
 
 
   METHODS is_empty
