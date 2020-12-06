@@ -1,24 +1,27 @@
 CLASS zcl_aoc_2020_day1_1 DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC .
+  CREATE PUBLIC
+    INHERITING FROM zcl_aoc_2020_base.
 
 
 
   PUBLIC SECTION.
-    INTERFACES zif_aoc_problem.
 
-    types: begin of mtyp_s_solution_1,
-            result TYPE i,
-            value1 TYPE i,
-            value2 TYPE i,
-          END   OF mtyp_s_solution_1.
+    TYPES: BEGIN OF mtyp_s_solution_1,
+             result TYPE i,
+             value1 TYPE i,
+             value2 TYPE i,
+           END   OF mtyp_s_solution_1.
 
-    DATA: ms_solution_1 type mtyp_s_solution_1 READ-ONLY.
+    DATA: ms_solution_1 TYPE mtyp_s_solution_1 READ-ONLY.
+
+    METHODS:
+      zif_aoc_problem~run REDEFINITION,
+      zif_aoc_problem~print REDEFINITION.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
-    DATA: mo_input_helper      TYPE REF TO zif_aoc_input_helper.
 
 ENDCLASS.
 
@@ -58,10 +61,6 @@ CLASS zcl_aoc_2020_day1_1 IMPLEMENTATION.
       CLEAR ms_solution_1.
     ENDIF.
 
-  ENDMETHOD.
-
-  METHOD zif_aoc_problem~set_input.
-    mo_input_helper = io_input_helper.
   ENDMETHOD.
 
 ENDCLASS.

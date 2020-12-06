@@ -32,7 +32,7 @@ CLASS zcl_aoc_input_helper DEFINITION
 
     METHODS get_from_local_file
       IMPORTING
-        !id_path     TYPE string
+        !id_path TYPE string
       EXCEPTIONS
         error .
 
@@ -75,12 +75,18 @@ CLASS zcl_aoc_input_helper IMPLEMENTATION.
                  RAISING error.
     ENDIF.
 
+
     lo_http_client->send( EXCEPTIONS OTHERS = 999 ).
     IF sy-subrc IS INITIAL.
       lo_http_client->receive( EXCEPTIONS OTHERS = 999 ).
     ENDIF.
 
     IF sy-subrc IS INITIAL.
+      lo_http_client->response->get_status( IMPORTING code   = DATA(ld_http_error_code)
+                                                      reason = DATA(ld_http_error_text)  ).
+    ENDIF.
+
+    IF ld_http_error_code = 200.
       SPLIT lo_http_client->response->get_cdata(  ) AT id_split_at INTO TABLE lt_string_tab.
       add_list( lt_string_tab ).
     ENDIF.
@@ -90,10 +96,7 @@ CLASS zcl_aoc_input_helper IMPLEMENTATION.
     ENDIF.
 
 
-
-    IF sy-subrc <> 0.
-      lo_http_client->get_last_error( IMPORTING code    =  DATA(ld_http_error_code)
-                                                message =  DATA(ld_http_error_text) ).
+    IF ld_http_error_code <> 200.
       MESSAGE ID 'BD' TYPE 'E' NUMBER 899
                  WITH |HTTP error - code: | ld_http_error_code | message: | ld_http_error_text
                  RAISING error.

@@ -1,12 +1,12 @@
 CLASS zcl_aoc_2020_day1_2 DEFINITION
   PUBLIC
   FINAL
-  CREATE PUBLIC .
+  CREATE PUBLIC
+   INHERITING FROM zcl_aoc_2020_base.
 
 
 
   PUBLIC SECTION.
-    INTERFACES zif_aoc_problem.
 
     TYPES: BEGIN OF mtyp_s_pair_values,
              value1 TYPE i,
@@ -22,9 +22,11 @@ CLASS zcl_aoc_2020_day1_2 DEFINITION
 
     DATA: ms_solution TYPE mtyp_s_solution READ-ONLY.
 
+    METHODS:
+      zif_aoc_problem~run REDEFINITION,
+      zif_aoc_problem~print REDEFINITION.
   PROTECTED SECTION.
   PRIVATE SECTION.
-    DATA: mo_input_helper      TYPE REF TO zif_aoc_input_helper.
 
     METHODS find_difference_pair_values IMPORTING id_index             TYPE i
                                                   id_sum               TYPE i
@@ -80,9 +82,6 @@ CLASS zcl_aoc_2020_day1_2 IMPLEMENTATION.
 
   ENDMETHOD.
 
-  METHOD zif_aoc_problem~set_input.
-    mo_input_helper = io_input_helper.
-  ENDMETHOD.
 
   METHOD find_difference_pair_values.
 
