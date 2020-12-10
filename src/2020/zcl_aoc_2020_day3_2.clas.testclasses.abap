@@ -35,7 +35,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "When
     DATA(cut) = NEW zcl_aoc_2020_day3_2(  ).
     cut->set_input( input ).
-    cut->run_per_movement( id_rigth = 1 id_down = 1 ).
+    cut->run_per_movement( id_right = 1 id_down = 1 ).
 
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 2 ).
@@ -63,7 +63,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "When
     DATA(cut) = NEW zcl_aoc_2020_day3_2(  ).
     cut->set_input( input ).
-    cut->run_per_movement( id_rigth = 1 id_down = 2 ).
+    cut->run_per_movement( id_right = 1 id_down = 2 ).
 
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 2 ).
@@ -89,7 +89,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "When
     DATA(cut) = NEW zcl_aoc_2020_day3_2(  ).
     cut->set_input( input ).
-    cut->run_per_movement( id_rigth = 3 id_down = 1 ).
+    cut->run_per_movement( id_right = 3 id_down = 1 ).
 
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 7 ).
@@ -115,7 +115,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "When
     DATA(cut) = NEW zcl_aoc_2020_day3_2(  ).
     cut->set_input( input ).
-    cut->run_per_movement( id_rigth = 5 id_down = 1 ).
+    cut->run_per_movement( id_right = 5 id_down = 1 ).
 
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 3 ).
@@ -141,7 +141,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "When
     DATA(cut) = NEW zcl_aoc_2020_day3_2(  ).
     cut->set_input( input ).
-    cut->run_per_movement( id_rigth = 7 id_down = 1 ).
+    cut->run_per_movement( id_right = 7 id_down = 1 ).
 
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 4 ).
@@ -149,7 +149,7 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD example_test.
-  "Given
+    "Given
     DATA(input) = NEW zcl_aoc_input_helper(  ).
 
     input->add( |..##.......| ).
@@ -172,5 +172,6 @@ CLASS ltcl_aoc_day3_2 IMPLEMENTATION.
     "Then
     cl_abap_unit_assert=>assert_equals( act = cut->get_result(  ) exp = 336 ).
   ENDMETHOD.
+
 
 ENDCLASS.
