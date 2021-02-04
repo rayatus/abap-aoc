@@ -155,7 +155,7 @@ CLASS zcl_aoc_input_helper IMPLEMENTATION.
 
 
   METHOD zif_aoc_input_helper~has_next.
-    IF md_index < lines( mt_input_values ) AND mt_input_values IS NOT INITIAL.
+    IF md_index < lines( mt_input_values ) AND is_empty(  ) = abap_false.
       rf_has_next = abap_true.
     ELSE.
       rf_has_next = abap_false.

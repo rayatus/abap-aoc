@@ -52,7 +52,7 @@ CLASS zcl_aoc_2020_day3_2 IMPLEMENTATION.
     DATA(ld_position) = 0.
     DATA(ld_row)      = 1.
 
-    DATA(lt_input) = mo_input_helper->get_all_values(  ).
+    DATA(lt_input) = get_input( )->get_all_values(  ).
 
     LOOP AT lt_input INTO DATA(ld_data).
       IF sy-tabix = ld_row.

@@ -35,7 +35,7 @@ CLASS zcl_aoc_2020_day1_1 IMPLEMENTATION.
 
     DATA lt_sorted_values TYPE SORTED TABLE OF i WITH UNIQUE KEY table_line.
 
-    lt_sorted_values[] = mo_input_helper->get_all_values( ).
+    lt_sorted_values[] = get_input( )->get_all_values( ).
 
     DATA(lf_found) = abap_false.
     DATA(j) = 0.

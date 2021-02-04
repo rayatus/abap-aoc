@@ -47,16 +47,16 @@ CLASS zcl_aoc_2020_day3_1 IMPLEMENTATION.
     DATA(lf_continue) = abap_true.
 
     DO mc_move-down TIMES.
-      IF mo_input_helper->has_next( ) = abap_true.
-        mo_input_helper->next(  ).
+      IF get_input( )->has_next( ) = abap_true.
+        get_input( )->next(  ).
       ENDIF.
     ENDDO.
 
     WHILE lf_continue = abap_true.
 
       DO mc_move-down TIMES.
-        IF mo_input_helper->has_next( ) = abap_true.
-          DATA(ld_value) = mo_input_helper->next(  ).
+        IF get_input( )->has_next( ) = abap_true.
+          DATA(ld_value) = get_input( )->next(  ).
         ELSE.
           lf_continue = abap_false.
         ENDIF.
@@ -81,8 +81,8 @@ CLASS zcl_aoc_2020_day3_1 IMPLEMENTATION.
     IF ld_expand_n_times > 1.
       DATA(lo_expanded_input) = NEW zcl_aoc_input_helper(  ).
 
-      WHILE mo_input_helper->has_next( ).
-        DATA(ld_input_value) = mo_input_helper->next(  ).
+      WHILE get_input( )->has_next( ).
+        DATA(ld_input_value) = get_input( )->next(  ).
         CLEAR ld_expanded_value.
         DO ld_expand_n_times TIMES.
           ld_expanded_value = ld_expanded_value && ld_input_value.
@@ -99,7 +99,7 @@ CLASS zcl_aoc_2020_day3_1 IMPLEMENTATION.
 
   METHOD calculate_expand_times.
 
-    DATA(ld_lines) = lines( mo_input_helper->get_all_values(  ) ).
+    DATA(ld_lines) = lines( get_input( )->get_all_values(  ) ).
     IF ld_lines > mc_move-right.
       rd_expand_n_times  = ld_lines DIV mc_move-right.
       IF ( ld_lines MOD mc_move-right ) <> 0.

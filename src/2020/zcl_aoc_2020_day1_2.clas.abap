@@ -44,7 +44,7 @@ CLASS zcl_aoc_2020_day1_2 IMPLEMENTATION.
     DATA lt_sorted_values TYPE SORTED TABLE OF i WITH UNIQUE KEY table_line.
     DATA ls_pair_value TYPE mtyp_s_pair_values.
 
-    lt_sorted_values[] = mo_input_helper->get_all_values( ).
+    lt_sorted_values[] = get_input( )->get_all_values( ).
 
     DATA(lf_found) = abap_false.
     DATA(j) = 0.
@@ -77,7 +77,7 @@ CLASS zcl_aoc_2020_day1_2 IMPLEMENTATION.
   METHOD find_difference_pair_values.
 
     DATA lt_sorted_values TYPE SORTED TABLE OF i WITH UNIQUE KEY table_line.
-    lt_sorted_values[] = mo_input_helper->get_all_values( ).
+    lt_sorted_values[] = get_input( )->get_all_values( ).
 
     DATA(lf_found) = abap_false.
     DATA(j) = id_index.

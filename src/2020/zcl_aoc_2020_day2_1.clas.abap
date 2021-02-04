@@ -67,7 +67,7 @@ CLASS zcl_aoc_2020_day2_1 IMPLEMENTATION.
 
 
   METHOD zif_aoc_problem~run.
-    map_input( EXPORTING io_input_helper = mo_input_helper
+    map_input( EXPORTING io_input_helper = get_input( )
                CHANGING  ct_mapped_input = mt_input ).
 
     LOOP AT mt_input INTO DATA(ls_input).

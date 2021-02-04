@@ -20,10 +20,11 @@ CLASS zcl_aoc_2020_base DEFINITION
     FOR zif_aoc_problem~get_input.
 
   PROTECTED SECTION.
-    DATA: mo_input_helper TYPE REF TO zif_aoc_input_helper,
-          md_result       TYPE decfloat34.
+
 
   PRIVATE SECTION.
+    DATA: mo_input_helper TYPE REF TO zif_aoc_input_helper,
+          md_result       TYPE decfloat34.
 ENDCLASS.
 
 
